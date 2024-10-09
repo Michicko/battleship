@@ -1,5 +1,8 @@
+import './styles.css';
 import Player from "./Player.js";
 import Ship from "./Ship.js";
+
+const container = document.querySelector('#container');
 
 const p1Ships = [
   new Ship(3, 2, 3),
