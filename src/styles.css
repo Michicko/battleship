@@ -16,6 +16,7 @@ body {
   width: 100%;
   overflow: hidden;
   font-family: sans-serif;
+  padding: 1rem;
 }
 
 header {
@@ -26,6 +27,7 @@ header {
   justify-content: space-between;
   padding: 0 4rem;
 }
+
 h1 {
   font-size: 2.5rem;
   font-weight: 700;
@@ -59,3 +61,181 @@ button {
   cursor: pointer;
   color: red;
 }
+
+.container {
+}
+
+#gameboards {
+  height: 32rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12rem;
+  margin: 10rem 5rem;
+  margin-bottom: 5rem;
+}
+
+.gameboard {
+  width: 32rem;
+  height: 32rem;
+  border: 1px solid #b4b4ff;
+  border-bottom: 0;
+  position: relative;
+  display: block;
+}
+
+.rows {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* ship */
+/* border: 2px solid #00f;
+background: rgba(0, 0, 255, .05); */
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(10, calc(32rem / 10));
+  /* border-bottom: 1px solid #333;   */
+}
+
+.col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.col:hover {
+  background: #fafad2;
+}
+
+.col.missed,.col.missed:hover {
+    background: #f2f4f8;
+  }
+
+.row:nth-child(1) > .col,
+.row > .col:first-child {
+  position: relative;
+}
+
+.row > .col:first-child::after {
+  left: -2.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.row:nth-child(1) > .col::before {
+  top: -2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.row:nth-child(1) > .col::before,
+.row > .col:first-child::after {
+  position: absolute;
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: #333;
+}
+
+/* first row */
+.row:nth-child(1) > .col:nth-child(1)::before {
+  content: "A";
+}
+.row:nth-child(1) > .col:nth-child(2)::before {
+  content: "B";
+}
+.row:nth-child(1) > .col:nth-child(3)::before {
+  content: "C";
+}
+.row:nth-child(1) > .col:nth-child(4)::before {
+  content: "D";
+}
+.row:nth-child(1) > .col:nth-child(5)::before {
+  content: "E";
+}
+.row:nth-child(1) > .col:nth-child(6)::before {
+  content: "F";
+}
+.row:nth-child(1) > .col:nth-child(7)::before {
+  content: "G";
+}
+.row:nth-child(1) > .col:nth-child(8)::before {
+  content: "H";
+}
+.row:nth-child(1) > .col:nth-child(9)::before {
+  content: "I";
+}
+.row:nth-child(1) > .col:nth-child(10)::before {
+  content: "J";
+}
+
+/* first cols */
+.row:nth-child(1) > .col:first-child::after {
+  content: "1";
+}
+
+.row:nth-child(2) > .col:first-child::after {
+  content: "2";
+}
+.row:nth-child(3) > .col:first-child::after {
+  content: "3";
+}
+.row:nth-child(4) > .col:first-child::after {
+  content: "4";
+}
+.row:nth-child(5) > .col:first-child::after {
+  content: "5";
+}
+.row:nth-child(6) > .col:first-child::after {
+  content: "6";
+}
+.row:nth-child(7) > .col:first-child::after {
+  content: "7";
+}
+.row:nth-child(8) > .col:first-child::after {
+  content: "8";
+}
+.row:nth-child(9) > .col:first-child::after {
+  content: "9";
+}
+.row:nth-child(10) > .col:first-child::after {
+  content: "10";
+}
+
+.col {
+  height: 3.2rem;
+  width: 3.2rem;
+  border-right: 1px solid #b4b4ff;
+  border-bottom: 1px solid #b4b4ff;
+}
+
+.row > .col:last-child {
+  border-right: 0;
+}
+
+.ship {
+  position: absolute;
+  top: 3.2rem;
+  left: 25.6rem;
+  border: 2px solid #00f;
+  background: rgba(0, 0, 255, 0.05);
+  height: 12.8rem;
+  width: 3.2rem;
+  z-index: 5;
+  cursor: move;
+}
+
+.miss {
+  height: 0.5rem;
+  width: 0.5rem;
+  background: #333;
+  border-radius: 50%;
+}
+
+/* .row > *:not(:last-child) {
+  border-bottom: none;
+  border-radius: none;
+} */
